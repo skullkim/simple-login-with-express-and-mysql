@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
     }
 });
 
-router.post('/', (req, res, next) => {
+router.post('/check-signup', (req, res, next) => {
     try{
         if(req.passwd1 === req.passwd2){
             res.send('hi');

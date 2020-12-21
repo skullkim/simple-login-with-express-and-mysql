@@ -2,7 +2,7 @@ const signup = document.getElementById('signup');
 
 const sign_button = document.getElementById('sign-button');
 sign_button.addEventListener('click', () => {
-    signup.setAttribute('action', '/check-signup');
+    signup.setAttribute('action', '/signup/check-signup');
     signup.setAttribute('method', 'POST');
 });
 

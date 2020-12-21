@@ -20,8 +20,8 @@ const signup_router = require('./routes/signup');
 app.use(express.static('public'));
 app.use('/', main_router);
 app.use('/login', login_router);
-app.use('/signup', signup_router);
-app.use('/check-signup', signup_router);
+app.use('/signup/', signup_router);
+//app.use('/check-signup', signup_router);
 
 app.use((req, res, next) => {
     const error = new Error(`main ${req.method} ${req.url} router doesn't exit`);
