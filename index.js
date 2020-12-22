@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
+const morgan = require('morgan');
 const nunjucks = require('nunjucks');
+
+const {sequelize} = require('./models');
 
 const app = express();
 
@@ -13,10 +16,19 @@ nunjucks.configure('views', {
     watch: true,
 });
 
+sequelize.sync({force: false})
+    .then(() => {
+        console.log('DB connect success');
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+
 const main_router = require('./routes');
 const login_router = require('./routes/login');
 const signup_router = require('./routes/signup');
 
+app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use('/', main_router);
 app.use('/login', login_router);

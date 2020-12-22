@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check sign up</title>
+</head>
+<body>
+    {%if success_signup === 'success'%}
+    <h1>signup success</h1>
+    <form action="/">
+        <input type="submit" value="move to main page" id="main-page">
+    </form>
+    {%elseif success_signup === 'wrongId'%}
+    <h1>same ID exsited</h1>
+    <form action="/signup">
+        <input type="submit" value="move to signup page" id="id-signup">
+    </form>
+    {%else%}
+    <h1>wrong password</h1>
+    <form action="/signup">
+        <input type="submit" value="move to signup page" id="passwd-signup">
+    </form>
+    {%endif%}
+
+    <!-- <script src=></script> -->
+</body>
+</html>
