@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    {% if has_user %}
     <h1>hello {{name}}</h1>
+    {% else %}
+    <h1>you did't signup yet, please signup</h1>
+    <form action="/signup">
+        <input type="submit" value="move to signup page" id="signup">
+    </form>
+    {% endif %}
 </body>
 </html>
