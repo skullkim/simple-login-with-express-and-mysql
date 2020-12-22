@@ -21,13 +21,11 @@ router.post('/check-signup', async (req, res, next) => {
         const user = await User.findOne({
             where: {name: req.body.id}
         });
-        //res.send("hi");
         if(!user && req.body.passwd1 === req.body.passwd2){
             const user = await User.create({
                 name: req.body.id,
                 passwd: req.body.passwd1,
             });
-            //res.send('hi');
             res.render('check_signup', {success_signup: 'success'});
         }
         else{

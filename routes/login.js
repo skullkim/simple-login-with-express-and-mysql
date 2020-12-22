@@ -12,6 +12,13 @@ router.post('/', async (req, res, next) => {
             where: {name: req.body.id}
         });
         if(user){
+            if(!req.session.user){
+                req.session.user = {
+                    name: req.body.id,
+                    passwd: req.body.passed,
+                    authorized: true,
+                }
+            }
             res.render('login', {'name': req.body.id, has_user: true});
         }
         else{
@@ -22,7 +29,11 @@ router.post('/', async (req, res, next) => {
         console.log(err);
         next(err);
     }
-})
+});
 
+router.post('/signout', (req, res, next) => {
+    req.session.destroy(() => req.session);
+    res.redirect('/');
+});
 
 module.exports = router;
