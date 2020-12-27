@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Rladbsrl&1878",
+    "password": "",
     "database": "study_group_login",
     "host": "127.0.0.1",
     "dialect": "mysql"
